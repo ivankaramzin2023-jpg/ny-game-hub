@@ -7,7 +7,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="theme-color" content="#7bb5e8">
-    <title>Новогодняя Игра — Мешок Деда Мороза (LB Bonus)</title>
+    <title>Новогодняя Игра — Мешок Деда Мороза (Уровень: Легенда)</title>
     <!-- Telegram WebApp SDK -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
@@ -46,9 +46,9 @@
             window.addEventListener('load', updateAppHeight);
         })();
     </script>
-    <link rel="stylesheet" href="style.css?v=5.1.0">
+    <link rel="stylesheet" href="style.css?v=5.2.0">
     <link rel="preload" as="image" href="assets/header_rules.png?v=5.1.0">
-    <link rel="preload" as="image" href="assets/header_result.png?v=5.1.0">
+    <link rel="preload" as="image" href="assets/header_result.png?v=5.2.0">
     <link rel="preload" as="image" href="assets/header_exit.png?v=5.1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -75,7 +75,7 @@
 
         <!-- HUD (Игровой интерфейс 1:1 по макету 04-game.png) -->
         <div id="hud" class="hud-container hidden">
-            <!-- Верхняя строка: Жизни (3 сердца) слева, Баллы (LB 0/750) справа -->
+            <!-- Верхняя строка: Жизни (3 сердца) слева, Баллы (LB 0/1000) справа -->
             <div class="hud-top-row">
                 <div id="hudHearts" class="hud-hearts-box">
                     <img src="assets/heart.webp" class="hud-heart active" id="heart1" alt="Жизнь 1">
@@ -84,7 +84,7 @@
                 </div>
                 <div class="hud-score-badge">
                     <img src="assets/coin_lb.webp" class="hud-score-coin-icon" alt="LB Монета">
-                    <span id="hudScoreText" class="hud-score-text">0/750</span>
+                    <span id="hudScoreText" class="hud-score-text">0/1000</span>
                 </div>
             </div>
 
@@ -120,8 +120,8 @@
                 <img src="assets/cover_plate.webp" class="cover-plate-bg" alt="Снежная плашка">
                 <div class="cover-plate-content">
                     <div class="cover-text-group">
-                        <img src="assets/cover_title_v2.png?v=5.0.0" class="cover-title-img" alt="Выигрывайте до 750 БОНУСОВ!">
-                        <img src="assets/cover_subtitle_v2.png?v=5.0.0" class="cover-subtitle-img" alt="Ловите блюда и получите шанс пополнить карту LB Бонус">
+                        <img src="assets/cover_title_v2.png?v=5.2.0" class="cover-title-img" alt="Выигрывайте до 1000 БОНУСОВ!">
+                        <img src="assets/cover_subtitle_v2.png?v=5.2.0" class="cover-subtitle-img" alt="Собирайте новогодние сеты и получите шанс пополнить карту LB Бонус">
                     </div>
                     <button id="playBtn" class="cover-play-btn" type="button" aria-label="ИГРАТЬ">
                         <img src="assets/cover_btn_play.webp" class="cover-btn-play-img" alt="ИГРАТЬ">
@@ -172,11 +172,11 @@
             </div>
         </div>
 
-        <!-- SCREEN 4: Экран результатов (УРОВЕНЬ: ЧЕМПИОН) -->
+        <!-- SCREEN 4: Экран результатов (УРОВЕНЬ: ЛЕГЕНДА) -->
         <div id="resultScreen" class="result-screen-container hidden">
-            <!-- Верхняя лента "УРОВЕНЬ: ЧЕМПИОН" -->
+            <!-- Верхняя лента "УРОВЕНЬ: ЛЕГЕНДА" -->
             <div class="result-top-box">
-                <img src="assets/header_result.png?v=5.1.0" class="result-ribbon-banner" alt="Уровень: Чемпион">
+                <img src="assets/header_result.png?v=5.2.0" class="result-ribbon-banner" alt="Уровень: Легенда">
             </div>
 
             <!-- Центральная плашка с блюдами и динамическими баллами -->
@@ -241,6 +241,6 @@
         </div>
     </div>
 
-    <script src="game.js?v=5.1.0"></script>
+    <script src="game.js?v=5.2.0"></script>
 </body>
 </html>

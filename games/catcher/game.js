@@ -244,7 +244,7 @@
             this.score = 0;
             this.foodCount = 0;
             this.maxFood = 30;
-            this.maxScore = 750;
+            this.maxScore = 1000;
             this.attemptsRemaining = 3; // 1 сердце = 1 попытка (от 3 до 1)
 
             this.pepperBonusActive = false;
@@ -584,12 +584,12 @@
                 this.itemsSinceLastIcicle = 0;
                 this.nextIcicleThreshold = 3 + Math.floor(Math.random() * 3); // 3, 4 или 5 предметов (на 15% чаще)
             } else if (isSanta) {
-                // Редкий падающий Дед Мороз (+50% баллов = 60 вместо 40)
+                // Редкий падающий Дед Мороз (+50% баллов = 75 вместо 50)
                 type = 'bonus';
                 subType = 'santa';
                 width = 86;
                 height = 56;
-                scoreVal = 60;
+                scoreVal = 75;
                 this.santaSpawnsCount++;
             } else {
                 // Шанс на бонус перчик x2 (около 7%)
@@ -601,16 +601,16 @@
                     height = 54;
                 } else {
                     type = 'food';
-                    // Крупные, сочные блюда по референсу (1 пойманное блюдо = 40 баллов)
+                    // Крупные, сочные блюда по референсу (1 пойманное блюдо = 50 баллов)
                     const foodTypes = [
-                        { key: 'ramen', w: 74, h: 74, score: 40 },
-                        { key: 'dango', w: 80, h: 65, score: 40 },
-                        { key: 'dimsum', w: 75, h: 67, score: 40 },
-                        { key: 'dimsum_flower', w: 76, h: 68, score: 40 },
-                        { key: 'salmon', w: 72, h: 64, score: 40 },
-                        { key: 'icecream', w: 64, h: 72, score: 40 },
-                        { key: 'bao', w: 76, h: 62, score: 40 },
-                        { key: 'onigiri', w: 74, h: 66, score: 40 }
+                        { key: 'ramen', w: 74, h: 74, score: 50 },
+                        { key: 'dango', w: 80, h: 65, score: 50 },
+                        { key: 'dimsum', w: 75, h: 67, score: 50 },
+                        { key: 'dimsum_flower', w: 76, h: 68, score: 50 },
+                        { key: 'salmon', w: 72, h: 64, score: 50 },
+                        { key: 'icecream', w: 64, h: 72, score: 50 },
+                        { key: 'bao', w: 76, h: 62, score: 50 },
+                        { key: 'onigiri', w: 74, h: 66, score: 50 }
                     ];
                     const chosen = foodTypes[Math.floor(Math.random() * foodTypes.length)];
                     subType = chosen.key;
