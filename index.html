@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#7bb5e8">
+    <title>Новогодняя Игра — LB Бонус</title>
+    <link rel="stylesheet" href="style.css?v=1.0.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;700;800;900&display=swap" media="print" onload="this.media='all'">
+    <link rel="preload" as="image" href="assets/01_cover_bg.webp">
+    <link rel="preload" as="image" href="assets/header_cover.png">
+    <link rel="preload" as="image" href="assets/hub_santa.png">
+    <link rel="preload" as="image" href="assets/card_runner_bg.png">
+    <link rel="preload" as="image" href="assets/card_catcher_bg.png">
+    <link rel="preload" as="image" href="assets/card_match3_bg.png">
+</head>
+<body>
+    <div id="gameContainer">
+        <!-- Общий фон неба -->
+        <img id="bgSky" src="assets/01_cover_bg.webp" class="figma-bg-sky" alt="Фон неба">
+
+        <!-- Ёлка (видна на втором экране выбора игр) -->
+        <img id="bgFirTree" src="assets/rules_fir_tree.webp" class="hub-fir-tree hidden" alt="Новогодняя ёлка">
+
+        <!-- Снежинки -->
+        <canvas id="snowCanvas"></canvas>
+
+        <!-- ЭКРАН 1: Обложка хаба -->
+        <div id="coverScreen" class="screen cover-screen">
+            <div class="cover-top-box">
+                <img src="assets/header_cover.png" class="cover-ribbon-banner" alt="Новогодняя Игра — LB Бонус">
+            </div>
+
+            <div class="hub-hero-zone">
+                <div class="hub-floating-icons">
+                    <button class="hub-game-tile tile-left" type="button" data-game="runner" aria-label="Полёт на воке">
+                        <img src="assets/icon_runner.png" alt="Полёт на воке">
+                    </button>
+                    <button class="hub-game-tile tile-center" type="button" data-game="catcher" aria-label="Мешок Деда Мороза">
+                        <img src="assets/icon_catcher.png" alt="Мешок Деда Мороза">
+                    </button>
+                    <button class="hub-game-tile tile-right" type="button" data-game="match3" aria-label="Новогодний сет">
+                        <img src="assets/icon_match3.png" alt="Новогодний сет">
+                    </button>
+                </div>
+
+                <div class="hub-santa-wrapper">
+                    <div class="santa-glow-circle"></div>
+                    <img src="assets/hub_santa.png" class="hub-santa-img" alt="Дед Мороз">
+                </div>
+            </div>
+
+            <div class="cover-bottom-plate-box">
+                <img src="assets/cover_plate.webp" class="cover-plate-bg" alt="">
+                <div class="cover-plate-content">
+                    <div class="cover-text-group">
+                        <div class="hub-bonus-headline">
+                            <span class="headline-prefix">Выигрывайте до</span>
+                            <span class="headline-amount">1000 БОНУСОВ!</span>
+                        </div>
+                        <img src="assets/hub_text_v2.png" class="hub-text-img" alt="Теперь можно всё! Выбирайте любую игру и получите шанс пополнить карту LB Бонус. Списывайте до 20% от стоимости заказа в любом проекте LB Бонус до 31.01: J'PAN, RA'MEN, WU SHU, Senti Menti, Nene">
+                    </div>
+
+                    <button id="playBtn" class="cover-play-btn" type="button" aria-label="ИГРАТЬ">
+                        <img src="assets/cover_btn_play.webp" class="cover-play-btn-img" alt="ИГРАТЬ">
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ЭКРАН 2: Свободная игра (выбор из 3 игр) -->
+        <div id="selectScreen" class="screen select-screen hidden">
+            <div class="select-top-banner">
+                <h1 class="select-banner-title">СВОБОДНАЯ<br>ИГРА</h1>
+            </div>
+
+            <div class="select-cards-list">
+                <!-- Карточка 1: Полёт на воке -->
+                <div class="game-card" data-game="runner" role="button" tabindex="0" aria-label="Играть в Полёт на воке">
+                    <img src="assets/card_runner_bg.png" class="game-card-bg" alt="Полёт на воке">
+                    <img src="assets/char_runner.png" class="game-card-char char-runner" alt="">
+                    <button class="game-card-play-btn" type="button" data-game="runner" aria-label="Играть">
+                        <img src="assets/card_btn_play.png" alt="ИГРАТЬ">
+                    </button>
+                </div>
+
+                <!-- Карточка 2: Мешок Деда Мороза -->
+                <div class="game-card" data-game="catcher" role="button" tabindex="0" aria-label="Играть в Мешок Деда Мороза">
+                    <img src="assets/card_catcher_bg.png" class="game-card-bg" alt="Мешок Деда Мороза">
+                    <img src="assets/char_catcher.png" class="game-card-char char-catcher" alt="">
+                    <button class="game-card-play-btn" type="button" data-game="catcher" aria-label="Играть">
+                        <img src="assets/card_btn_play.png" alt="ИГРАТЬ">
+                    </button>
+                </div>
+
+                <!-- Карточка 3: Новогодний сет -->
+                <div class="game-card" data-game="match3" role="button" tabindex="0" aria-label="Играть в Новогодний сет">
+                    <img src="assets/card_match3_bg.png" class="game-card-bg" alt="Новогодний сет">
+                    <img src="assets/char_match3.png" class="game-card-char char-match3" alt="">
+                    <button class="game-card-play-btn" type="button" data-game="match3" aria-label="Играть">
+                        <img src="assets/card_btn_play.png" alt="ИГРАТЬ">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js?v=1.0.0"></script>
+</body>
+</html>
