@@ -465,13 +465,22 @@ body {
     object-fit: contain;
     z-index: 2;
     filter: drop-shadow(0 6px 12px rgba(10, 45, 90, 0.16));
+    animation: cardCharFloat 3.6s ease-in-out infinite;
+    transform-origin: center center;
+}
+
+@keyframes cardCharFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    45% { transform: translateY(-4px) rotate(1deg); }
+    80% { transform: translateY(-1px) rotate(-0.8deg); }
 }
 
 .char-runner {
-    left: 4%;
+    left: 1.5%;
     top: 5%;
     height: 88%;
     width: auto;
+    animation-delay: 0s;
 }
 
 .char-catcher {
@@ -479,6 +488,7 @@ body {
     top: 10%;
     height: 80%;
     width: auto;
+    animation-delay: -1.2s;
 }
 
 .char-match3 {
@@ -486,13 +496,14 @@ body {
     top: 7%;
     height: 86%;
     width: auto;
+    animation-delay: -2.4s;
 }
 
 .game-card-play-btn {
     position: absolute;
-    left: 33.5%;
-    bottom: 1%;
-    width: 68.4%;
+    left: 35.5%;
+    bottom: 2.5%;
+    width: 63.5%;
     background: transparent;
     border: none;
     padding: 0;
